@@ -251,6 +251,8 @@ def run_train_distributed(args: typing.Optional[argparse.Namespace] = None) -> N
         run_train, args, args.nproc_per_node, args.nnodes,
         args.node_rank, args.master_addr, args.master_port)
 
+def run_evotune(): 
+    run_train()
 
 if __name__ == '__main__':
     run_train_distributed()

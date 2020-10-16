@@ -456,6 +456,7 @@ class ProteinBertModel(ProteinBertAbstractModel):
 
 
 @registry.register_task_model('masked_language_modeling', 'transformer')
+@registry.register_task_model('evotune', 'transformer')
 class ProteinBertForMaskedLM(ProteinBertAbstractModel):
 
     def __init__(self, config):
@@ -488,7 +489,6 @@ class ProteinBertForMaskedLM(ProteinBertAbstractModel):
         outputs = self.mlm(sequence_output, targets) + outputs[2:]
         # (loss), prediction_scores, (hidden_states), (attentions)
         return outputs
-
 
 @registry.register_task_model('fluorescence', 'transformer')
 @registry.register_task_model('stability', 'transformer')
